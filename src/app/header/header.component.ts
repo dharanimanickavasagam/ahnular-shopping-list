@@ -1,4 +1,4 @@
-import { Component} from "@angular/core";
+import {Component} from "@angular/core";
 
 @Component({
   selector: 'app-header',
@@ -7,4 +7,11 @@ import { Component} from "@angular/core";
     './header.component.css']
 })
 
-export class HeaderComponent {}
+export class HeaderComponent {
+  activeTab: string = 'RECIPE';
+
+  setActiveTab = (activeTab: string): void => {
+    this.activeTab = activeTab;
+    console.log('setting active tab as ', this.activeTab)
+  }
+}
