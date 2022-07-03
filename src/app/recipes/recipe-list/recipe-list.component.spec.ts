@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecipeListComponent } from "./recipe-list.component";
+import { RecipeListComponent } from './recipe-list.component';
 
-describe("RecipeListComponent", () => {
+describe('RecipeListComponent', () => {
   let component: RecipeListComponent;
   let fixture: ComponentFixture<RecipeListComponent>;
 
@@ -16,7 +16,7 @@ describe("RecipeListComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

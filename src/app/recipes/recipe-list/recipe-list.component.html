@@ -1,11 +1,50 @@
 <p>Recipe List</p>
 <div *ngFor="let recipe of recipes">
-  <div class="container flex col-lg-12">
-    <section class="recipeNameStyles">{{ recipe.name }}</section>
-    <section class="recipeDescriptionStyles">
-      <app-recipe-item></app-recipe-item>
-    </section>
+  <div class="container flex col-xs-12">
+    <a href="#" class="list-group-item">
+      <div class="col-xs-7 pull-left">
+        <h4 class="list-group-item-heading recipeNameStyles">
+          {{ recipe.name }}
+        </h4>
+        <p class="list-group-item-text">
+          {{ recipe.description }}
+        </p>
+      </div>
+      <span class="pull-right">
+        <img
+          [src]="recipe.imagePath"
+          alt="recipeImage"
+          class="img-responsive imgStyles"
+        />
+      </span>
+
+      <div class="recipeItemStyles">
+        <app-recipe-item></app-recipe-item>
+      </div>
+    </a>
   </div>
 </div>
 
-<button class="btn btn-success">Add New Recipe</button>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" (click)="showReceipeInputFields()">
+      Add New Recipe
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isAddNewRecipeButtonClicked == true">
+  <h4>Input the new recipe item !</h4>
+  <div>Recipe Name <input type="text" [(ngModel)]="recipeName" /></div>
+  <div>
+    Recipe Description <input type="text" [(ngModel)]="recipeDescription" />
+  </div>
+  <div>Recipe Image <input type="text" [(ngModel)]="recipeImage" /></div>
+
+  <div class="button-fields">
+    <button class="btn btn-success" (click)="addRecipeItem()">Add</button>
+    <button class="btn btn-danger" (click)="showReceipeInputFields()">
+      Cancel
+    </button>
+  </div>
+</div>
