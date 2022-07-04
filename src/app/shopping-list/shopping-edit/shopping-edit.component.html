@@ -1,8 +1,42 @@
-<p>shopping-edit works!</p>
+<p>Edit Shopping List!</p>
 <div class="row">
-  <div class="col-xs-10">
-    This is Shopping edit component
-    <hr />
+  <div class="col-xs-12">
+    <form>
+      <div class="row">
+        <div class="col-xs-7 form-group">
+          <label for="name"> Name </label>
+          <input
+            type="text"
+            name="ingredientName"
+            class="form-control"
+            [(ngModel)]="ingredientName"
+          />
+        </div>
+        <div class="col-xs-5 form-group">
+          <label for="count"> Count </label>
+          <input
+            type="number"
+            name="ingredientCount"
+            class="form-control"
+            [(ngModel)]="ingredientCount"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            class="button btn btn-success"
+            (click)="addIngredient()"
+            type="submit"
+          >
+            Add
+          </button>
+          <div class="button btn btn-success" type="button">Update</div>
+          <div class="button btn btn-danger" type="button">Delete</div>
+          <div class="button btn btn-primary" type="button">Clear</div>
+        </div>
+      </div>
+    </form>
   </div>
-  <p>The List</p>
 </div>
