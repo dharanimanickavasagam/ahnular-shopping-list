@@ -11,4 +11,16 @@ export class RecipeDetailComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  showRecipeDetails = (recipe: Recipe): boolean => {
+    if (
+      recipe.name == '' &&
+      recipe.description == '' &&
+      recipe.imagePath == ''
+    ) {
+      console.log('this is false');
+      return false;
+    }
+    return true;
+  };
 }

@@ -1,34 +1,40 @@
 <p>Recipe Details !</p>
-<div class="row">
-  <div class="col-xs-12"></div>
-  <img [src]="recipe.imagePath" alt="hi" class="img-responsive" />
-</div>
+<ng-template #showDefaults>
+  <h1>Choose something to display !</h1>
+</ng-template>
+<div class="row" *ngIf="showRecipeDetails(recipe); else showDefaults">
+  <div class="row">
+    <div class="col-xs-12">
+      <img [src]="recipe.imagePath" alt="hi" class="img-responsive" />
+    </div>
+  </div>
 
-<div class="row">
-  <div class="col-xs-12"></div>
-  <h1>{{ recipe.name }}</h1>
-  <h4>{{ recipe.description }}</h4>
-</div>
+  <div class="row">
+    <div class="col-xs-12"></div>
+    <h1>{{ recipe.name }}</h1>
+    <h4>{{ recipe.description }}</h4>
+  </div>
 
-<div class="row">
-  <div class="col-xs-12"></div>
-  <button class="btn btn-primary dropdown-toggle">
-    Manage
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="#"> Add to Cart </a></li>
-    <li><a href="#"> Edit Recipe </a></li>
-    <li><a href="#"> Delete Recipe </a></li>
-  </ul>
-</div>
+  <div class="row">
+    <div class="col-xs-12"></div>
+    <button class="btn btn-primary dropdown-toggle">
+      Manage
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#"> Add to Cart </a></li>
+      <li><a href="#"> Edit Recipe </a></li>
+      <li><a href="#"> Delete Recipe </a></li>
+    </ul>
+  </div>
 
-<div class="row">
-  <div class="col-xs-12"></div>
-  <h4>Description</h4>
-</div>
+  <div class="row">
+    <div class="col-xs-12"></div>
+    <h4>Description</h4>
+  </div>
 
-<div class="row">
-  <div class="col-xs-12"></div>
-  <h4>Ingredients</h4>
+  <div class="row">
+    <div class="col-xs-12"></div>
+    <h4>Ingredients</h4>
+  </div>
 </div>
