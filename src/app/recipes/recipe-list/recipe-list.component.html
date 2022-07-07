@@ -1,27 +1,11 @@
 <p>Recipe List</p>
-<div *ngFor="let recipe of recipes">
+<div class="row">
   <div class="container flex col-xs-12">
-    <a href="#" class="list-group-item">
-      <div class="col-xs-7 pull-left">
-        <h4 class="list-group-item-heading recipeNameStyles">
-          {{ recipe.name }}
-        </h4>
-        <p class="list-group-item-text">
-          {{ recipe.description }}
-        </p>
-      </div>
-      <span class="pull-right">
-        <img
-          [src]="recipe.imagePath"
-          alt="recipeImage"
-          class="img-responsive imgStyles"
-        />
-      </span>
-
-      <div class="recipeItemStyles">
-        <app-recipe-item></app-recipe-item>
-      </div>
-    </a>
+    <app-recipe-item
+      *ngFor="let recipe of recipes"
+      [recipe]="recipe"
+      (click)="onRecipeItemClick(recipe)"
+    ></app-recipe-item>
   </div>
 </div>
 
@@ -32,6 +16,8 @@
     </button>
   </div>
 </div>
+
+<hr />
 
 <div *ngIf="isAddNewRecipeButtonClicked == true">
   <h4>Input the new recipe item !</h4>
