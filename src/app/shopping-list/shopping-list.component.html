@@ -1,14 +1,18 @@
 <p>List of Shopping Items!</p>
 
 <div class="container col-xs-12">
-  <ul class="list-group">
-    <a
-      class="list-group-item pointerStyles"
-      *ngFor="let ingredient of ingredients"
-    >
-      {{ ingredient.name }} ({{ ingredient.count }})
-    </a>
-  </ul>
+  <div class="row">
+    <ul class="list-group">
+      <a
+        class="list-group-item pointerStyles"
+        *ngFor="let ingredient of ingredients"
+      >
+        {{ ingredient.name }} ({{ ingredient.count }})
+      </a>
+    </ul>
+  </div>
 </div>
 
-<app-shopping-edit></app-shopping-edit>
+<app-shopping-edit
+  (newIngredientEvent)="addNewIngredient($event)"
+></app-shopping-edit>

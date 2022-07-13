@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  ViewChild,
+  Output,
+  ElementRef
+} from '@angular/core';
+import { Ingredient } from 'src/app/ingredients/ingredient.model';
 import { ShoppingListComponent } from '../shopping-list.component';
 
 @Component({
@@ -7,23 +14,24 @@ import { ShoppingListComponent } from '../shopping-list.component';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent extends ShoppingListComponent {
+  @ViewChild('ingredientName', { static: false }) ingredientName:
+    | ElementRef
+    | undefined;
+  @ViewChild('ingredientCount', { static: false }) ingredientCount:
+    | ElementRef
+    | undefined;
+  @Output() newIngredientEvent = new EventEmitter<Ingredient>();
+
   constructor() {
     super();
   }
 
-  ingredientName: string = '';
-  ingredientCount: number = 0;
-
-  addIngredient = () => {
-    console.log('clicked', this.ingredients, {
-      name: this.ingredientName,
-      count: this.ingredientCount
-    });
-
-    this.ingredients.push({
-      name: this.ingredientName,
-      count: this.ingredientCount
-    });
-    console.log(this.ingredients);
+  addIngredient = (): void => {
+    if (this.ingredientName != undefined && this.ingredientCount != undefined) {
+      this.newIngredientEvent.emit({
+        name: this.ingredientName.nativeElement.value,
+        count: this.ingredientCount.nativeElement.value
+      });
+    }
   };
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="col-xs-12 containerStyles">
     <p>I am the main root renderer</p>
-    <app-header (activeTabEventEmitter)="showComponent($event)"> </app-header>
+    <app-header (activeTabEvent)="showComponent($event)"> </app-header>
     <span *ngIf="activeComponent == 'RECIPES'; else shoppingList">
       <app-recipes> </app-recipes>
     </span>

@@ -12,7 +12,17 @@ export class ShoppingListComponent implements OnInit {
     { name: 'Roma Tomatoes', count: 10 },
     { name: 'Bell Peppers', count: 5 }
   ];
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  addNewIngredient = (data: any): void => {
+    console.log('received', data);
+    this.ingredients.push({ name: data.name, count: data.count });
+  };
+
+  callDummy = () => {
+    console.log('reached');
+  };
 }
