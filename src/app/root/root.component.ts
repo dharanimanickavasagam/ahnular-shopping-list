@@ -12,7 +12,6 @@ export class RootComponent implements OnInit {
   ngOnInit(): void {}
 
   showComponent = (data: string): void => {
-    console.log('received data', data);
     this.activeComponent = data;
   };
 }

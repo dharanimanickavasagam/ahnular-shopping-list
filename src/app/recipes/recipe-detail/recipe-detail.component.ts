@@ -18,7 +18,6 @@ export class RecipeDetailComponent implements OnInit {
       recipe.description == '' &&
       recipe.imagePath == ''
     ) {
-      console.log('this is false');
       return false;
     }
     return true;
